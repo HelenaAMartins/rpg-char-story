@@ -1,7 +1,9 @@
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", () => {
-  console.log();
+  //getting char name
   const char = document.querySelector("#name").value;
+
+  //choosing the species
   const species = document.querySelector("#species").value;
   let images = [];
   let hSpecies = "";
@@ -10,66 +12,49 @@ btn.addEventListener("click", () => {
   switch (species) {
     case "zumbi":
       hSpecies = "Zumbi";
-      strSpeciesFull = "Zumbis, criaturas amantes de churrasco fresco (preferem vivos, ainda se mexendo)";
-      images.push(
-        "./img/zumbi1.jpg"
-      );
+      strSpeciesFull =
+        "Zumbis, criaturas amantes de churrasco fresco (preferem vivos, ainda se mexendo)";
+      //pushing images
+      images.push("./img/zumbi1.jpg");
       images.push("./img/zumbi2.jpg");
       images.push("./img/zumbi3.jpg");
       images.push("./img/zumbi4.jpg");
-      images.push(
-        "./img/zumbi5.jpg"
-      );
+      images.push("./img/zumbi5.jpg");
 
       break;
     case "orc":
       hSpecies = "Orc";
       strSpeciesFull = "Orcs, criaturas fortes, mas leais.";
+      //pushing images
       images.push("./img/orc1.jpg");
-      images.push(
-        "./img/orc2.jpg"
-      );
-      images.push(
-        "./img/orc3.jpg"
-      );
-      images.push(
-        "./img/orc4.jpg"
-      );
+      images.push("./img/orc2.jpg");
+      images.push("./img/orc3.jpg");
+      images.push("./img/orc4.jpg");
       images.push("./img/orc5.jpg");
       break;
     case "human":
       hSpecies = "Humano";
       strSpeciesFull = "Humanos, as mais gananciosas criaturas já vistas.";
-      images.push(
-        "./img/human1.jpg"
-      );
-      images.push(
-        "./img/human2.jpg"
-      );
+      //pushing images
+      images.push("./img/human1.jpg");
+      images.push("./img/human2.jpg");
       images.push("./img/human3.jpg");
-      images.push(
-        "./img/human4"
-      );
+      images.push("./img/human4");
       images.push("./img/human5.jpg");
       break;
     case "goblin":
       hSpecies = "Goblin";
       strSpeciesFull = "Goblins, criaturinhas perspicazes";
-      images.push(
-        "./img/goblin1.jpg"
-      );
+      //pushing images
+      images.push("./img/goblin1.jpg");
       images.push("./img/goblin2.jpg");
-      images.push(
-        "./img/goblin3.jpg"
-      );
-      images.push(
-        "./img/goblin4.jpg"
-      );
-      images.push(
-        "./img/goblin5.jpg"
-      );
+      images.push("./img/goblin3.jpg");
+      images.push("./img/goblin4.jpg");
+      images.push("./img/goblin5.jpg");
       break;
   }
+
+  //choosing the class
   const classes = document.querySelector("#classes").value;
   let hClasses = "";
   let strClassesFull = "";
@@ -93,6 +78,7 @@ btn.addEventListener("click", () => {
       break;
   }
 
+  //choosing the weapon
   const weapon = document.querySelector("#weapon").value;
   let hWeapon = "";
   let strWeaponFull = "";
@@ -117,6 +103,7 @@ btn.addEventListener("click", () => {
       break;
   }
 
+  //choosing the place
   const place = document.querySelector("#place").value;
   let hPlace = "";
   let strPlaceFull = "";
@@ -142,6 +129,7 @@ btn.addEventListener("click", () => {
       break;
   }
 
+  //choosing the accident
   const accident = document.querySelector("#accident").value;
   let hAccident = "";
   let strAccidentFull = "";
@@ -153,7 +141,8 @@ btn.addEventListener("click", () => {
       break;
     case "eruption":
       hAccident = "Erupção Vulcânica";
-      strAccidentFull = "A Maior Erupção vulcânica que destruiu parte de seu mundo";
+      strAccidentFull =
+        "A Maior Erupção vulcânica que destruiu parte de seu mundo";
       break;
     case "timeFissure":
       hAccident = "Fissura no Tempo";
@@ -166,8 +155,12 @@ btn.addEventListener("click", () => {
         "Uma fissura que permitiu locomoção de seres em diferentes mundos";
       break;
   }
+
+  //setting current year for the story
   const today = new Date();
   const year = today.getFullYear();
+
+  //text written dynamically on DOM
   document.querySelector(".form").setAttribute("style", "display:none");
   const txt = `Senta que lá vem a história: Vou contar-lhes como começou a história de ${char}, 
   mais ilustre  ${hClasses} de todos os mundos conhecidos até agora. Em ${year} houve um terrível acidente 
@@ -177,12 +170,16 @@ btn.addEventListener("click", () => {
   Se juntou a eles para explorar o que lhe foi negado. O primeiro passo foi conseguir lutar com sua nova arma, ${strWeaponFull}. 
   Logo deu um apelido a sua nova arma: ${hWeapon}. O primeiro lugar explorado foi ${strPlaceFull}. 
   Lá, ${char} virou  ${strClassesFull}, e começou a explorar e conhecer novos lugares. Fim! Hora de dormir!`;
+
+  //setting BG image and making them change randomly from 5 to 5 seconds
   changeBG(images);
   setInterval(function () {
     changeBG(images);
   }, 5000);
   let i = 0;
-  const speed = 50; /* The speed/duration of the effect in milliseconds */
+  const speed = 50;
+
+  //making typing machine style
   function typeWriter() {
     if (i < txt.length) {
       document.getElementById("storyText").innerHTML += txt.charAt(i);
@@ -193,6 +190,7 @@ btn.addEventListener("click", () => {
   typeWriter();
 });
 
+//change BG function
 function changeBG(images) {
   var randomBack = Math.floor(Math.random() * images.length);
   if (randomBack == 0) {
