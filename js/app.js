@@ -35,7 +35,7 @@ function createStory() {
       break;
     case "orc":
       hSpecies = "Orc";
-      strSpeciesFull = "Orcs, criaturas fortes, mas leais.";
+      strSpeciesFull = "Orcs, criaturas fortes, mas leais";
       //pushing images
       images.push("./img/orc1.jpg");
       images.push("./img/orc2.jpg");
@@ -45,12 +45,12 @@ function createStory() {
       break;
     case "human":
       hSpecies = "Humano";
-      strSpeciesFull = "Humanos, as mais gananciosas criaturas já vistas.";
+      strSpeciesFull = "Humanos, as mais gananciosas criaturas já vistas";
       //pushing images
-      images.push("./img/human1.jpg");
       images.push("./img/human2.jpg");
       images.push("./img/human3.jpg");
-      images.push("./img/human4");
+      images.push("./img/human4.jpg");
+      images.push("./img/human.jpg");
       images.push("./img/human5.jpg");
       break;
     case "goblin":
