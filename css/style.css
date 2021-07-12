@@ -5,6 +5,7 @@
   margin: 0;
 }
 body {
+  background-image: url('../img/zumbi4.jpg') ;
   transition: all 0.5s;
   font-family: "Special Elite", cursive;
   background-size: cover;
@@ -18,13 +19,25 @@ body {
   align-items: center;
 }
 
+.startWrap{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
 .form {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 90%;
-  max-width: 300px;
-  padding-top: 50px;
+  max-width: 330px;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #fff;
 }
+
 
 h3 {
   margin-bottom: 20px;
@@ -44,6 +57,10 @@ input {
   line-height: inherit;
 }
 
+.custom-select.error label{
+  color: red;
+}
+
 .custom-select,
 input {
   margin-bottom: 20px;
@@ -53,8 +70,8 @@ input {
   margin-bottom: 5px;
 }
 
-#storyText {
-  display: flex;
+.storyText {
+  display: none;
   background-color: #fff;
   color: #000;
   padding: 30px;
@@ -76,4 +93,8 @@ button {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.04em;
+}
+
+.on{
+  display: flex;
 }

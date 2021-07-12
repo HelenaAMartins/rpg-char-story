@@ -1,5 +1,16 @@
-const btn = document.querySelector("#btn");
-btn.addEventListener("click", () => {
+const startBtn = document.querySelector(".start");
+const form = document.querySelector(".form");
+const selectElts = document.getElementsByTagName("select");
+const audio = document.querySelector("audio");
+
+startBtn.addEventListener("click", () => {
+  audio.volume = 0.4;
+  audio.play();
+  document.querySelector('.startWrap').classList.remove("on");
+  form.classList.add("on");
+});
+
+function createStory() {
   //getting char name
   const char = document.querySelector("#name").value;
 
@@ -161,7 +172,7 @@ btn.addEventListener("click", () => {
   const year = today.getFullYear();
 
   //text written dynamically on DOM
-  document.querySelector(".form").setAttribute("style", "display:none");
+  document.querySelector(".form").classList.remove("on");
   const txt = `Senta que lá vem a história: Vou contar-lhes como começou a história de ${char}, 
   mais ilustre  ${hClasses} de todos os mundos conhecidos até agora. Em ${year} houve um terrível acidente 
   que mudou pra sempre a vida dos seres dos 7 mundos. Na verdade, houve ${strAccidentFull}. Da relativa paz em que ${char}, 
@@ -180,14 +191,35 @@ btn.addEventListener("click", () => {
   const speed = 50;
 
   //making typing machine style
+  const storyDiv = document.querySelector(".storyText");
+  storyDiv.classList.add('on');
   function typeWriter() {
     if (i < txt.length) {
-      document.getElementById("storyText").innerHTML += txt.charAt(i);
+      storyDiv.innerHTML += txt.charAt(i);
       i++;
       setTimeout(typeWriter, speed);
     }
   }
   typeWriter();
+}
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let error = 0;
+
+  // Check all select menus
+  for (let i = 0; i < selectElts.length; i++) {
+    // Check if current input's value is empty
+    if (selectElts[i].value.trim() === "") {
+      error = error + 1;
+      selectElts[i].parentElement.classList.add('error');
+    }
+  }
+
+  // if there are no errors, then we submit the form
+  if (error === 0) {
+    createStory();
+  }
 });
 
 //change BG function

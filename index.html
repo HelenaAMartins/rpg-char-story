@@ -5,13 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/button.css" />
     <title>Conte um conto</title>
   </head>
   <body>
+    <audio loop>
+      <source src="./audio/song.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="startWrap on">
+      <button class="start">Vamos começar!</button>
+    </div>
     <div class="container">
-      <div class="form">
+      <form class="form">
         <h3>Informações da história</h3>
         <input
+          required
           type="text"
           id="name"
           name="name"
@@ -20,6 +28,7 @@
         <div class="custom-select">
           <label for="species">Escolha uma espécie</label>
           <select name="species" id="species">
+            <option value="" disabled selected>Selecione um</option>
             <option value="zumbi">Zumbis</option>
             <option value="orc">Orcs</option>
             <option value="human">Humanos</option>
@@ -29,6 +38,7 @@
         <div class="custom-select">
           <label for="classes">Escolha uma classe</label>
           <select name="classes" id="classes">
+            <option value="" disabled selected>Selecione um</option>
             <option value="priest">Padre</option>
             <option value="cang">Cangaceiro</option>
             <option value="rogue">Afanador</option>
@@ -38,6 +48,7 @@
         <div class="custom-select">
           <label for="weapon">Escolha uma arma</label>
           <select name="weapon" id="weapon">
+            <option value="" disabled selected>Selecione um</option>
             <option value="knife">Pexeira</option>
             <option value="slingshot">Slingshot</option>
             <option value="axe">Machado</option>
@@ -47,6 +58,7 @@
         <div class="custom-select">
           <label for="place">Escolha um lugar</label>
           <select name="place" id="place">
+            <option value="" disabled selected>Selecione um</option>
             <option value="january">January River</option>
             <option value="underworld">Submundo</option>
             <option value="sobral">Sobral</option>
@@ -56,6 +68,7 @@
         <div class="custom-select">
           <label for="accident">Escolha um acidente</label>
           <select name="accident" id="accident">
+            <option value="" disabled selected>Selecione um</option>
             <option value="eclipse">Eclipse Eterno</option>
             <option value="eruption">Erupção Vulcânica</option>
             <option value="timeFissure">Fissura no Tempo</option>
@@ -63,9 +76,9 @@
           </select>
         </div>
         <button id="btn">Monte Sua História</button>
-      </div>
+      </form>
     </div>
-    <div id="storyText"></div>
+    <div class="storyText"></div>
     <script src="./js/app.js"></script>
   </body>
 </html>
